@@ -99,3 +99,8 @@ volumes:
 EOL
 
 echo "Directories and files created successfully."
+
+# Run docker-compose up -d
+docker-compose up -d
+
+echo "Docker Compose started successfully."
