@@ -33,7 +33,7 @@ EOL
 # Create and write content to the prometheus.yml file
 cat <<EOL > prometheus/prometheus.yml
 global:
-  scrape_interval: 15s
+  scrape_interval: 15s #time to get metrics
 
 scrape_configs:
   - job_name: 'prometheus'
@@ -45,7 +45,7 @@ scrape_configs:
     params:
       module: [http_2xx]
     static_configs:
-      - targets:
+      - targets: # add the services to be monitored
           - https://spsrcXX.iaa.csic.es/
 
     relabel_configs:
