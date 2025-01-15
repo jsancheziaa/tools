@@ -8,7 +8,7 @@ SERVICE_FILE="/etc/systemd/system/node_exporter.service"
 USER="node_exporter"
 
 # Update and install prerequisites
-sudo apt-get update && sudo apt-get install -y wget tar
+# sudo apt-get update && sudo apt-get install -y wget tar
 
 # Download and extract Node Exporter
 wget $DOWNLOAD_URL -O node_exporter.tar.gz
