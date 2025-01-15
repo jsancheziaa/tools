@@ -55,4 +55,4 @@ sudo systemctl start node_exporter
 sudo systemctl enable node_exporter
 
 # Check the service logs
-journalctl -u node_exporter -f
+# journalctl -u node_exporter -f
