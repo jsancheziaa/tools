@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cephfs-pod
+spec:
+  containers:
+    - name: app-container
+      image: nginx
+      volumeMounts:
+        - mountPath: "/usr/share/nginx/html"
+          name: cephfs-storage
+  volumes:
+    - name: cephfs-storage
+      persistentVolumeClaim:
+        claimName: cephfs-pvc
