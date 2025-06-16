@@ -17,6 +17,8 @@ sudo apt install -y docker-ce docker-ce-cli containerd.io
 
 # Add current user to the 'docker' group (to run Docker without sudo)
 sudo usermod -aG docker ${USER}
+# Add current user to the 'docker' group (to run Docker without sudo)
+sudo usermod -aG docker ubuntu
 
 # Install Docker Compose (latest stable release)
 sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
