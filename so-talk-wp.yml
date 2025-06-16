@@ -4,7 +4,7 @@ services:
   wordpress:
     image: wordpress:latest
     ports:
-      - "18018:80"
+      - "18021:80"
     environment:
       WORDPRESS_DB_HOST: db
       WORDPRESS_DB_USER: wpuser
@@ -28,7 +28,7 @@ services:
   adminer:
     image: adminer:latest
     ports:
-      - "18019:8080"
+      - "18022:8080"
     depends_on:
       - db
 
