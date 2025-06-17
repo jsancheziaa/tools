@@ -5,7 +5,7 @@ GRAFANA_ADMIN_USER="admin"
 GRAFANA_ADMIN_PASSWORD="Granada@2025"
 PROMETHEUS_TARGET="node-exporter:9100"
 DATASOURCE_URL="http://192.168.200.187:18027"
-DASHBOARD_ID="13659"
+DASHBOARD_ID="1860"
 DASHBOARD_URL="https://grafana.com/api/dashboards/${DASHBOARD_ID}/revisions/1/download"
 
 # Crear estructura de carpetas
