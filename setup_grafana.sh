@@ -5,6 +5,7 @@ GRAFANA_ADMIN_USER="admin"
 GRAFANA_ADMIN_PASSWORD="Granada@2025"
 PROMETHEUS_TARGET="node-exporter:9100"
 DATASOURCE_URL="http://192.168.200.187:18027"
+DATASOURCE_NAME="MyDataSource"
 DASHBOARD_ID="1860"
 DASHBOARD_URL="https://grafana.com/api/dashboards/${DASHBOARD_ID}/revisions/1/download"
 
@@ -67,7 +68,7 @@ cat > grafana/provisioning/datasources/datasource.yaml <<EOF
 apiVersion: 1
 
 datasources:
-  - name: 'MyDataSource'
+  - name: '${DATASOURCE_NAME}'
     type: prometheus
     access: proxy
     url: ${DATASOURCE_URL}
@@ -91,8 +92,12 @@ EOF
 # Descargar dashboard JSON
 curl -o grafana/dashboards/dashboard-${DASHBOARD_ID}.json ${DASHBOARD_URL}
 
+# Reemplazar "Prometheus" o null por el nombre de nuestro datasource
+sed -i "s/\"datasource\": null/\"datasource\": \"${DATASOURCE_NAME}\"/g" grafana/dashboards/dashboard-${DASHBOARD_ID}.json
+sed -i "s/\"datasource\": \"Prometheus\"/\"datasource\": \"${DATASOURCE_NAME}\"/g" grafana/dashboards/dashboard-${DASHBOARD_ID}.json
+
 # Lanzar los servicios
 docker compose up -d
 
 echo "✅ Grafana, Prometheus y Node Exporter están desplegados."
-echo "🔗 Accede a Grafana: http://localhost:3000 (Usuario: ${GRAFANA_ADMIN_USER}, Contraseña: ${GRAFANA_ADMIN_PASSWORD})"
+echo "🔗 Accede a Grafana: http://localhost:18028 (Usuario: ${GRAFANA_ADMIN_USER}, Contraseña: ${GRAFANA_ADMIN_PASSWORD})"
