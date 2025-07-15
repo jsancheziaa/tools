@@ -2,7 +2,7 @@
 
 # Variables
 GRAFANA_ADMIN_USER="admin"
-GRAFANA_ADMIN_PASSWORD="Granada@2025"
+GRAFANA_ADMIN_PASSWORD="redacted"
 PROMETHEUS_TARGET="node-exporter:9100"
 DATASOURCE_URL="redacted"
 DATASOURCE_NAME="MyDataSource"
